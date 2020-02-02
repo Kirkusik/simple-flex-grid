@@ -1,0 +1,85 @@
+$container_width: 1280px;
+$columns: 12;
+
+$break_xs: 320px;
+$break_sm: 576px;
+$break_md: 768px;
+$break_lg: 992px;
+$break_xl: 1200px;
+
+$offset: 30px;
+$offset_xs: $offset;
+$offset_sm: $offset;
+$offset_md: $offset;
+$offset_lg: $offset;
+$offset_xl: $offset;
+
+$offset_one_side: ($offset / 2);
+$offset_xs_one_side: ($offset_xs / 2);
+$offset_sm_one_side: ($offset_sm / 2);
+$offset_md_one_side: ($offset_md / 2);
+$offset_lg_one_side: ($offset_lg / 2);
+$offset_xl_one_side: ($offset_xl / 2);
+
+$fields: 15px;
+
+@mixin container-fluid(){
+	width: 100%;
+	padding-left: $fields;
+	padding-right: $fields;
+}
+
+@mixin container($container_width){
+	max-width: $container_width;
+	margin: 0 auto;
+	@include container-full();
+}
+
+@mixin row-flex(){
+	display: flex;
+	flex-wrap: wrap;
+	@include row-offsets();
+}
+
+@mixin row-offsets(){
+	margin-left: ($offset_one_side * -1);
+	margin-right: ($offset_one_side * -1);
+}
+@mixin col(){
+	box-sizing: border-box;
+	word-wrap: break-word;
+	@include col-offsets(margin);
+}
+@mixin col-offsets($type){
+	#{$type}-left: $offset_one_side;
+	#{$type}-right: $offset_one_side;
+}
+@mixin col-size($n){
+	$val: 100% / $columns * $n;
+	width: #{calc(#{$val} - #{$offset})};
+}
+
+@mixin col-size-xs($n){
+	$val: 100% / $columns * $n;
+	@include xs(width, #{calc(#{$val} - #{$offset_xs})});
+}
+
+@mixin col-size-sm($n){
+	$val: 100% / $columns * $n;
+	@include sm(width, #{calc(#{$val} - #{$offset_sm})});
+}
+
+@mixin col-size-md($n){
+	$val: 100% / $columns * $n;
+	@include md(width, #{calc(#{$val} - #{$offset_md})});
+}
+
+@mixin col-size-lg($n){
+	$val: 100% / $columns * $n;
+	@include lg(width, #{calc(#{$val} - #{$offset_lg})});
+}
+
+@mixin col-size-xl($n){
+	$val: 100% / $columns * $n;
+	@include xl(width, #{calc(#{$val} - #{$offset_xl})});
+}
