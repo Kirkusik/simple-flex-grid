@@ -29,39 +29,38 @@ $fields: 15px;
 	padding-right: $fields;
 }
 
-@mixin container($container_width){
-	max-width: $container_width;
+@mixin container(){
 	margin: 0 auto;
-	@include container-full();
+	@include container-fluid();
 }
 
-@mixin container-xs($value){
+@mixin container-xs($prop, $value){
 	@media screen and (min-width: $break_xs){
-		max-width: $value;
+		#{$prop}: $value;
 	}
 }
 
-@mixin container-sm($value){
+@mixin container-sm($prop, $value){
 	@media screen and (min-width: $break_sm){
-		max-width: $value;
+		#{$prop}: $value;
 	}
 }
 
-@mixin container-md($value){
+@mixin container-md($prop, $value){
 	@media screen and (min-width: $break_md){
-		max-width: $value;
+		#{$prop}: $value;
 	}
 }
 
-@mixin container-lg($value){
+@mixin container-lg($prop, $value){
 	@media screen and (min-width: $break_lg){
-		max-width: $value;
+		#{$prop}: $value;
 	}
 }
 
-@mixin container-xl($value){
+@mixin container-xl($prop, $value){
 	@media screen and (min-width: $break_xl){
-		max-width: $value;
+		#{$prop}: $value;
 	}
 }
 
@@ -91,25 +90,25 @@ $fields: 15px;
 
 @mixin col-size-xs($n){
 	$val: 100% / $columns * $n;
-	@include xs(width, #{calc(#{$val} - #{$offset_xs})});
+	@include container-xs(width, #{calc(#{$val} - #{$offset_xs})});
 }
 
 @mixin col-size-sm($n){
 	$val: 100% / $columns * $n;
-	@include sm(width, #{calc(#{$val} - #{$offset_sm})});
+	@include container-sm(width, #{calc(#{$val} - #{$offset_sm})});
 }
 
 @mixin col-size-md($n){
 	$val: 100% / $columns * $n;
-	@include md(width, #{calc(#{$val} - #{$offset_md})});
+	@include container-md(width, #{calc(#{$val} - #{$offset_md})});
 }
 
 @mixin col-size-lg($n){
 	$val: 100% / $columns * $n;
-	@include lg(width, #{calc(#{$val} - #{$offset_lg})});
+	@include container-lg(width, #{calc(#{$val} - #{$offset_lg})});
 }
 
 @mixin col-size-xl($n){
 	$val: 100% / $columns * $n;
-	@include xl(width, #{calc(#{$val} - #{$offset_xl})});
+	@include container-xl(width, #{calc(#{$val} - #{$offset_xl})});
 }
