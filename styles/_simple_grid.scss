@@ -35,6 +35,36 @@ $fields: 15px;
 	@include container-full();
 }
 
+@mixin container-xs($value){
+	@media screen and (min-width: $break_xs){
+		max-width: $value;
+	}
+}
+
+@mixin container-sm($value){
+	@media screen and (min-width: $break_sm){
+		max-width: $value;
+	}
+}
+
+@mixin container-md($value){
+	@media screen and (min-width: $break_md){
+		max-width: $value;
+	}
+}
+
+@mixin container-lg($value){
+	@media screen and (min-width: $break_lg){
+		max-width: $value;
+	}
+}
+
+@mixin container-xl($value){
+	@media screen and (min-width: $break_xl){
+		max-width: $value;
+	}
+}
+
 @mixin row-flex(){
 	display: flex;
 	flex-wrap: wrap;
